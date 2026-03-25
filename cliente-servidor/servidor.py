@@ -1,7 +1,7 @@
 import socket
 
-HOST = "127.0.0.1"  
-PORT = 5000 
+HOST = "127.0.0.1"
+PORT = 5001
 
 # socket TCP
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -9,18 +9,19 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # IP - Perto
 server.bind((HOST, PORT))
 
-server.listen()
+server.listen(2)
 
-print("Servidor esperando conexión...")
+print("Servidor esperando conexiones...")
 
-conn, addr = server.accept()
-print(f"Conexión establecida desde {addr}")
+while True:
+    conn, addr = server.accept()
+    print(f"Conexión establecida desde {addr}")
 
-data = conn.recv(1024).decode()
-print(f"Mensaje recibido: {data}")
+    data = conn.recv(1024).decode()
+    print(f"Mensaje recibido: {data}")
 
-respuesta = "Mensaje recibido correctamente"
-conn.send(respuesta.encode())
+    respuesta = "Mensaje recibido correctamente"
+    conn.send(respuesta.encode())
 
-conn.close()
-server.close()
+    conn.close()
+    print(f"Conexión cerrada con {addr}")

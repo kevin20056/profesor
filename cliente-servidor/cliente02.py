@@ -1,7 +1,7 @@
 import socket
 
 HOST = "127.0.0.1"
-PORT = 5000
+PORT = 5001
 
 # socket TCP
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -10,7 +10,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((HOST, PORT))
 
 # mensaje
-mensaje = "Hola servidor"
+mensaje = "Hola desde Cliente 02"
 client.send(mensaje.encode())
 
 # repuesta
