@@ -2,19 +2,22 @@
 
 import threading
 import time
+
 # import random
 from random import randint
 
 sem = threading.Semaphore(3)
+
 
 def carro(id):
     print(f"carro {id} intentando entrar...")
 
     with sem:
         print(f"Carro {id} ha entrado al parqueadero")
-        tiempo = randint(1,3)
+        tiempo = randint(1, 3)
         time.sleep(tiempo)
         print(f"Carro {id} sale con tiempo de {tiempo} segundos")
+
 
 hilos = []
 
@@ -28,4 +31,3 @@ for h in hilos:
 
 
 print("------------Parqueadero Libre-------------")
-
