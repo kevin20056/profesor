@@ -4,7 +4,7 @@ import threading
 
 
 class ChatClient:
-    def __init__(self, host="127.0.0.1", port=5555, nickname="Cliente1"):
+    def __init__(self, host="192.168.1.152", port=5555, nickname="Cliente1"):
         self.host = host
         self.port = port
         self.nickname = nickname
